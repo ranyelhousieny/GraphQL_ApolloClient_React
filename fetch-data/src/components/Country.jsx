@@ -2,9 +2,6 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
-
-
-
 const Country = ( props ) => {
     const { country_id }  = props.match.params
     console.log( "props", props.match.params, " Country Id = ", country_id);
