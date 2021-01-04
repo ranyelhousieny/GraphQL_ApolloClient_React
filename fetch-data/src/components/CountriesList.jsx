@@ -12,7 +12,8 @@ const COUNTRIES_LIST = gql `query {
 const CountriesList = () => {
     return (
         <div>
-            <h1>Countries List: </h1>
+            <p style={{fontWeight:"bold"}}>Countries List: </p>
+            <p>From GraphQL By: Rany ElHousieny</p>
             <hr />
             <Query query={ COUNTRIES_LIST }>
                 { ( { loading, error, data } ) => {
@@ -20,7 +21,7 @@ const CountriesList = () => {
                     if ( data ) return (
                         <div>
                             { console.log( "data", data ) }
-                        {data.countries.map((country) => {
+                            {data.countries.map((country) => {
                             return (
                                 <div>
                                 <li key={country.code}>{ country.name }</li>
@@ -30,7 +31,7 @@ const CountriesList = () => {
                                     </div>
                             )
                         } ) }
-                            </div>
+                        </div>
                     )
                 }}
             </Query>

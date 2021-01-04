@@ -1,11 +1,14 @@
 import React from 'react';
+
 import gql from 'graphql-tag';
+
 import { Query } from 'react-apollo';
 
 const Country = ( props ) => {
     const { country_id }  = props.match.params
-    console.log( "props", props.match.params, " Country Id = ", country_id);
-    const QUERY = gql `query($country_id: ID!){
+    console.log( "props", props, " Country Id = ", country_id );
+    
+    const QUERY = gql `query ($country_id: ID!) {
         country(code:$country_id){
             code
             name
@@ -34,3 +37,5 @@ const Country = ( props ) => {
 };
 
 export default Country;
+
+
