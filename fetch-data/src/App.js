@@ -1,6 +1,7 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import CountriesList from './components/CountriesList';
 
 const QUERY = gql `query{
   country(code:"US"){
@@ -27,6 +28,11 @@ function App() {
           )
         }}
       </Query>
+      <div>
+        <hr />
+        <CountriesList/>
+      </div>
+  
     </div>
   );
 }

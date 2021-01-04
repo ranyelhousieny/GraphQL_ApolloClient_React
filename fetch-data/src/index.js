@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import App from './App';
 
@@ -14,6 +15,7 @@ import { HttpLink } from 'apollo-link-http';
 import { ApolloClient } from 'apollo-client';
 
 import gql from 'graphql-tag';
+import Country from './components/Country';
 
 const cache = new InMemoryCache( {} );
 const link = new HttpLink();
@@ -38,7 +40,10 @@ client.query( {
 // 4. wrap your app inside the provider
 ReactDOM.render(
   <ApolloProvider client={ client }>
-    <App />
+    <BrowserRouter>
+      <Route exact path='/' component={ App } />
+      <Route exact path='/country/:country_id' component={ Country} />
+    </BrowserRouter>
   </ApolloProvider>,
   document.getElementById('root')
 );
